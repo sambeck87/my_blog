@@ -42,10 +42,10 @@
 
 This project allows you:
 
--
--
--
--
+- Create a user
+- Create posts
+- Comment and like posts
+- Comment and like users
 
 <br>
 
@@ -120,6 +120,7 @@ bundle install
 To run the project, execute the following command:
 
 ```
+rails c
 
 ```
 
