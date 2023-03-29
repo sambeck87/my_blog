@@ -3,12 +3,14 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
 
-  def self.update_posts_counter(name)
-    user = User.find_by(name:)
-    user.update(posts_counter: Post.where(author_id: User.find_by(name:).id).length)
-  end
-
   def self.recent_comments(title)
     p Comment.where(post_id: Post.find_by(title:).id).order(created_at: :desc).limit(5)
+  end
+
+  after_save :update_post_counter
+
+  private
+  def update_post_counter
+    author.increment!(:posts_counter)
   end
 end

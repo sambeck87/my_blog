@@ -42,11 +42,10 @@
 
 This project allows you:
 
-- Know the 3 most recent posts for a given user.
-- Update the posts counter for a user.
-- Know the 5 most recent comments for a given post.
-- Update the comments counter for a post.
-- Update the likes counter for a post.
+- Create a user
+- Create posts
+- Comment and like posts
+- Comment and like users
 
 <br>
 
