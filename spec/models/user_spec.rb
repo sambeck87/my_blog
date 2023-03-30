@@ -35,4 +35,26 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+  context 'the method recent_posts should return the last 3 post of a specific user' do
+    it 'recent_posts should return 3 elemets' do
+      user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+                          posts_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+
+      expect(User.recent_posts('Lilly').length).to eql 3
+    end
+
+    it 'the fist element should be most recent than the lastone' do
+      user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+                          posts_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter:0,likes_counter:0)
+      expect(User.recent_posts('Lilly')[0].created_at).to be > User.recent_posts('Lilly')[2].created_at
+    end
+  end
 end

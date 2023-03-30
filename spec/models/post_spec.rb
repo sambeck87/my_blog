@@ -66,4 +66,32 @@ RSpec.describe Post, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+  context 'the method recent_comments should return the last 5 comments of a specific post' do
+    it 'recent_comments should return 5 elemets' do
+      user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+                          posts_counter: 0)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+
+      expect(Post.recent_comments('Hello').length).to eql 5
+    end
+
+    it 'the fist element should be most recent than the lastone' do
+      user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+                          posts_counter: 0)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+      user2.comments.create(author: user2, post: subject)
+
+      expect(Post.recent_comments('Hello')[0].created_at).to be > Post.recent_comments('Hello')[2].created_at
+    end
+  end
 end
