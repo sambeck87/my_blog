@@ -16,17 +16,25 @@ RSpec.describe PostsController, type: :request do
       end
 
       it 'renders the index template' do
-        get '/users/5/posts'
+        user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                   bio: 'Teacher from Poland.', posts_counter: 0)
+        get "/users/#{user.id}/posts"
         expect(response.body).to include('List of posts')
       end
 
       it 'renders the show template' do
-        get '/users/5/posts/8'
+        user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                   bio: 'Teacher from Poland.', posts_counter: 0)
+        post = Post.create(author:user, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+        get "/users/#{user.id}/posts/#{post.id}"
         expect(response).to render_template(:show)
       end
 
       it 'renders the show template' do
-        get '/users/1/posts/1'
+        user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+              bio: 'Teacher from Poland.', posts_counter: 0)
+        post = Post.create(author:user, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+        get "/users/#{user.id}/posts/#{post.id}"
         expect(response.body).to include("Post's information")
       end
     end

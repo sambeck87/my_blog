@@ -1,1 +1,5 @@
-<h1>List of users</h1>
+<ul id="users_list">
+  <% @users.all.each do |user| %>
+    <li><%= link_to(render('user_card', user: user), user_path(user)) %></li>
+  <% end %>
+</ul>

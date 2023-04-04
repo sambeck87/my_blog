@@ -1,1 +1,14 @@
-<h1>User's information</h1>
+<%= render 'user_card', user: @user %>
+<div class="bio border">
+<h3>Bio</h3>
+<p><%= @user.bio %></p>
+</div>
+<ul>
+  <% posts = User.recent_posts(@user.name) %>
+  <% posts.all.each_with_index do |post, i| %>
+    <li><%= render('posts/post_card', post: post, i: i) %></li>
+  <% end %>
+</ul>
+<div class="button border">
+<%= link_to 'See all posts', user_posts_path(@user) %>
+</div>
