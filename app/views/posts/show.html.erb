@@ -1,1 +1,18 @@
-<h1>Post's information</h1>
+
+<div class="border post_card  bio">
+<div class="post_header">
+<p> Post #<%= @post.id %> by <%= @post.author.name%> </p>
+<p class="counters">Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter%></p>
+</div>
+<p><%= @post.text %></p>
+</div>
+<div class="border recent_comments">
+    <%@comments.each do |comment| %>
+      <li>
+      <div>
+      <%= comment.author.name %>:
+      <%= comment.text %>
+      </div>
+      </li>
+      <% end %>
+</div>

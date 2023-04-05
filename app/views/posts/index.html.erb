@@ -1,1 +1,18 @@
-<h1>List of posts</h1>
+<%= render 'users/user_card', user: @posts[0].author %>
+<ul>
+  <% @posts.all.each_with_index do |post, i| %>
+  <% comments = Post.recent_comments(post.title) %>
+    <li><%= link_to render('post_card', post: post, i: i), user_post_path(@posts[0].author, post) %></li>
+    <div class="recent_comments border">
+    <%comments.each do |comment| %>
+      <li class="comment">
+      <%= comment.author.name %>:
+      <%= comment.text %>
+      </li>
+      <% end %>
+    <div>
+    </div>
+    </div>
+  <% end %>
+</ul>
+<div class="button border">Pagination</div>

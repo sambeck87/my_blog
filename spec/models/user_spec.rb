@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 0) }
+  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mex', posts_counter: 0) }
 
   before { subject.save }
 
@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
 
   context 'the method recent_posts should return the last 3 post of a specific user' do
     it 'recent_posts should return 3 elemets' do
-      user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+      user2 = User.create(name: 'casimiro', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Pol',
                           posts_counter: 0)
       user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                          likes_counter: 0)
@@ -49,11 +49,11 @@ RSpec.describe User, type: :model do
       user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                          likes_counter: 0)
 
-      expect(User.recent_posts('Lilly').length).to eql 3
+      expect(User.recent_posts('casimiro').length).to eql 3
     end
 
     it 'the fist element should be most recent than the lastone' do
-      user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+      user2 = User.create(name: 'casimiro', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Pol',
                           posts_counter: 0)
       user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                          likes_counter: 0)
@@ -61,7 +61,7 @@ RSpec.describe User, type: :model do
                          likes_counter: 0)
       user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                          likes_counter: 0)
-      expect(User.recent_posts('Lilly')[0].created_at).to be > User.recent_posts('Lilly')[2].created_at
+      expect(User.recent_posts('casimiro')[0].created_at).to be > User.recent_posts('casimiro')[2].created_at
     end
   end
 end
