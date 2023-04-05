@@ -1,8 +1,12 @@
 <div class="post_card border">
   <h3>Post # <%= i+1 %></h3>
   <p class="text"><%= post.text %></p>
-  <p class="comments">
+  <div class="comments">
+    <button><%= link_to "Add comment", new_comment_path(ApplicationController.current_user, post) %></button>
+    <%= bootstrap_form_with(model: @like, url: add_like_path(ApplicationController.current_user, post), method: :post, local: :true) do |f| %>
+      <%= f.submit 'Like' %>
+    <%end%>
     Comments: <%= post.comments_counter %>
     Likes: <%= post.likes_counter %>
-  </p>
+  </div>
 </div>
