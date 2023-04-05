@@ -1,4 +1,3 @@
-
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
@@ -14,7 +13,7 @@ class CommentsController < ApplicationController
     redirect_to user_posts_path(ApplicationController.current_user, @post)
   end
 
-    private
+  private
 
   def comment_params
     params.require(:comment).permit(:text)
