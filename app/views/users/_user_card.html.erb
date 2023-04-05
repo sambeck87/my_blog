@@ -3,7 +3,8 @@
     <div class="user_name border">
       <h2><%= user.name%></h2>
       <p>
-      <%= link_to "Number of posts: #{user.posts_counter}", new_post_path(user_id: user.id) %>
+      <button><%= link_to "Add posts", new_post_path(user_id: user.id) %></button>
+      Number of posts: <%= user.posts_counter %>
       </p>
     </div>
   </div>

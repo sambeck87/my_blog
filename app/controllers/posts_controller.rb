@@ -20,11 +20,8 @@ class PostsController < ApplicationController
     @post.author = ApplicationController.current_user
     @post.comments_counter = 0
     @post.likes_counter = 0
-    if @post.save
-      redirect_to user_posts_path(ApplicationController.current_user), notice: "El post se creó correctamente."
-    else
-     redirect_to user_posts_path, notice: "El post NO se creó correctamente."
-    end
+    @post.save
+    redirect_to user_posts_path(ApplicationController.current_user)
   end
 
   private
