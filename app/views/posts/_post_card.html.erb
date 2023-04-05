@@ -2,6 +2,7 @@
   <h3>Post # <%= i+1 %></h3>
   <p class="text"><%= post.text %></p>
   <p class="comments">
+    <%= link_to "Comments: #{post.comments_counter}", new_comment_path(ApplicationController.current_user, post) %>
     Comments: <%= post.comments_counter %>
     Likes: <%= post.likes_counter %>
   </p>

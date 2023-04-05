@@ -1,0 +1,4 @@
+  <%= bootstrap_form_with model: @comment, url: user_post_path, method: :post, local: true do |f|%>
+    <%= f.text_area :text %>
+    <%= f.submit %>
+  <%end%>
