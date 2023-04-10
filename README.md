@@ -148,6 +148,12 @@ This project is not available to deploy
   - Twitter: [@sambeck4488](https://twitter.com/sambeck4488)
   - LinkedIn: [LinkedIn](https://www.linkedin.com/in/sandro-israel-hern%C3%A1ndez-zamora-899386a4/)
 
+  👤 **Shinhyo Belliard**
+
+- GitHub: [@ShinhyoBelok](https://github.com/ShinhyoBelok)
+- Twitter: [@Bell_iraki](https://twitter.com/Bell_iraki)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/shinhyo-belliard-okazaki-807a38249/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
