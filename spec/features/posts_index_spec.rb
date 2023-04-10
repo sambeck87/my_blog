@@ -1,50 +1,25 @@
 require 'rails_helper'
 
-describe 'user_show', type: :feature do
+RSpec.describe 'post_index', type: :feature do
   before :each do
     @user = User.create(name: 'Tornado',
-      photo: 'https://unsplash.com/photos/Tornado',
-      bio: 'Complete bio Tornado',
-      posts_counter: 0
-    )
+                        photo: 'https://unsplash.com/photos/Tornado',
+                        bio: 'Complete bio Tornado',
+                        posts_counter: 0)
 
-    @post = Post.create(
-      title: 'post 1',
-      text: 'my last recent post',
-      comments_counter: 0,
-      likes_counter: 0,
-      author: @user
-    )
+    @post = Post.create(title: 'post 1', text: 'my last recent post', comments_counter: 0, likes_counter: 0,
+                        author: @user)
 
-    @user.posts << [Post.create(
-        title: 'post 2',
-        text: 'new post 2',
-        comments_counter: 0,
-        likes_counter: 0,
-        author: @user
-      ),
-      Post.create(
-        title: 'post 3',
-        text: 'new post 3',
-        comments_counter: 0,
-        likes_counter: 0,
-        author: @user
-      ),
-      Post.create(
-        title: 'post 4',
-        text: 'new post 4',
-        comments_counter: 0,
-        likes_counter: 0,
-        author: @user
-      ),
-      Post.create(
-        title: 'post 5',
-        text: 'new post 5',
-        comments_counter: 0,
-        likes_counter: 0,
-        author: @user
-      )
-    ]
+    Post.create(title: 'post 2', text: 'new post 2', comments_counter: 0, likes_counter: 0, author: @user)
+
+    Post.create(title: 'post 3', text: 'new post 3', comments_counter: 0, likes_counter: 0,
+                author: @user)
+
+    Post.create(title: 'post 4', text: 'new post 4', comments_counter: 0, likes_counter: 0,
+                author: @user)
+
+    Post.create(title: 'post 5', text: 'new post 5', comments_counter: 0, likes_counter: 0,
+                author: @user)
 
     Comment.create(author: @user, post: @post, text: 'comment 1')
     Comment.create(author: @user, post: @post, text: 'comment 2')
@@ -75,7 +50,7 @@ describe 'user_show', type: :feature do
   end
 
   it 'I can see the number of posts the user has written.' do
-    expect(page).to have_content('Number of posts: 9')
+    expect(page).to have_content('Number of posts: 5')
   end
 
   it 'I can see a posts title' do
@@ -87,20 +62,20 @@ describe 'user_show', type: :feature do
   end
 
   it 'I can see how many comments a post has.' do
-    all("#comment-count") do |count|
-        expect(count.text).to eq('Comments: 6')
+    all('#comment-count') do |count|
+      expect(count.text).to eq('Comments: 6')
     end
   end
 
   it 'I can see how many likes a post has.' do
-    all("#comment-count") do |count|
-        expect(count.text).to eq('Like: 0')
+    all('#comment-count') do |count|
+      expect(count.text).to eq('Like: 0')
     end
   end
 
   it 'I can see a section for pagination if there are more posts than fit on the view.' do
-    all("#comment-count") do |count|
-        expect(count.text).to eq('Pagination')
+    all('#comment-count') do |count|
+      expect(count.text).to eq('Pagination')
     end
   end
 

@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe "user_show", type: :feature do
+RSpec.describe 'user_show', type: :feature do
   before :each do
-  @user = User.create(name: 'Hekapoo',
+    @user = User.create(name: 'Hekapoo',
                         photo: 'https://unsplash.com/photos/Hekapoo', bio: 'Complete bio Hekapoo', posts_counter: 0)
-    @post1 = Post.create(title: "post 1", text: "new post 1", comments_counter: 0, likes_counter:0, author:@user)
-    Post.create(title: "post 2", text: "new post 2", comments_counter: 0, likes_counter:0, author:@user)
-    Post.create(title: "post 3", text: "new post 3", comments_counter: 0, likes_counter:0, author:@user)
-    Post.create(title: "post 4", text: "new post 4", comments_counter: 0, likes_counter:0, author:@user)
-    Post.create(title: "post 5", text: "new post 5", comments_counter: 0, likes_counter:0, author:@user)
-    Comment.create(author: @user, post: @post1, text: "my comments")
+    @post1 = Post.create(title: 'post 1', text: 'new post 1', comments_counter: 0, likes_counter: 0, author: @user)
+    Post.create(title: 'post 2', text: 'new post 2', comments_counter: 0, likes_counter: 0, author: @user)
+    Post.create(title: 'post 3', text: 'new post 3', comments_counter: 0, likes_counter: 0, author: @user)
+    Post.create(title: 'post 4', text: 'new post 4', comments_counter: 0, likes_counter: 0, author: @user)
+    Post.create(title: 'post 5', text: 'new post 5', comments_counter: 0, likes_counter: 0, author: @user)
+    Comment.create(author: @user, post: @post1, text: 'my comments')
     visit user_path(@user)
     @post1_url = "#{users_path}/#{@user.id}/posts/#{@post1.id}"
     @all_post_url = "#{users_path}/#{@user.id}/posts/"

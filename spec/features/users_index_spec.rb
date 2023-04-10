@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-describe "users_index", type: :feature do
+RSpec.describe 'users_index', type: :feature do
   before :each do
-  @user1 = User.create(name: 'Hekapoo',
-                        photo: 'https://unsplash.com/photos/Hekapoo', bio: 'Complete bio Hekapoo', posts_counter: 0)
-  @user2 = User.create(name: 'Peloton',
-                        photo: 'https://unsplash.com/photos/Peloton', bio: 'Complete bio Peloton', posts_counter: 1)
-  @user3 = User.create(name: 'Tartaroude',
-                        photo: 'https://unsplash.com/photos/Tartaroude', bio: 'Complete bio Tartaroude', posts_counter: 2)
+    @user1 = User.create(name: 'Hekapoo',
+                         photo: 'https://unsplash.com/photos/Hekapoo', bio: 'Complete bio Hekapoo', posts_counter: 0)
+    @user2 = User.create(name: 'Peloton',
+                         photo: 'https://unsplash.com/photos/Peloton', bio: 'Complete bio Peloton', posts_counter: 1)
+    @user3 = User.create(name: 'Tartaroude',
+                         photo: 'https://unsplash.com/photos/Tart', bio: 'Complete bio Tartaroude',
+                         posts_counter: 2)
 
     visit users_path
   end
