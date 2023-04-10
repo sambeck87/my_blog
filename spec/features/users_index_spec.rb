@@ -32,4 +32,10 @@ RSpec.describe 'users_index', type: :feature do
     click_link 'Hekapoo'
     expect(page).to have_content('Complete bio Hekapoo')
   end
+
+  it 'When I click on Add post, I am redirected to posts new page' do
+    first_link = page.all(:link, 'Add posts')[0] # Obtener el segundo link
+    click_link(href: first_link['href'])
+    expect(page) == "#{users_path}/#{@user1.id}/posts/new"
+  end
 end

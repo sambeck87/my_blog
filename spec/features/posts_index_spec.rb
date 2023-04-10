@@ -89,4 +89,10 @@ RSpec.describe 'post_index', type: :feature do
     click_link 'Post # 1'
     expect(current_path) == @post1_url
   end
+
+  it 'When I click on Add comment, I am redirected to posts new page' do
+    first_link = page.all(:link, 'Add comment')[0] # Obtener el segundo link
+    click_link(href: first_link['href'])
+    expect(page) == "#{users_path}/#{@user.id}/comments/new"
+  end
 end
