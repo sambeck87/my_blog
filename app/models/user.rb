@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id'
   has_many :likes, foreign_key: 'author_id'
 
+  attribute :posts_counter, :integer, default: 0
+
   def self.recent_posts(name)
     p Post.where(author_id: User.find_by(name:).id).order(created_at: :desc).limit(3)
   end

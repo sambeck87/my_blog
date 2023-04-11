@@ -2,8 +2,8 @@
   <h3>Post # <%= i+1 %></h3>
   <p class="text"><%= post.text %></p>
   <div class="comments">
-    <button><%= link_to "Add comment", new_comment_path(ApplicationController.current_user, post) %></button>
-    <%= bootstrap_form_with(model: @like, url: add_like_path(ApplicationController.current_user, post), method: :post, local: :true) do |f| %>
+    <button><%= link_to "Add comment", new_comment_path(current_user, post) %></button>
+    <%= bootstrap_form_with(model: @like, url: add_like_path(current_user, post), method: :post, local: :true) do |f| %>
       <%= f.submit 'Like' %>
     <%end%>
     Comments: <%= post.comments_counter %>
