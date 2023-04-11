@@ -1,7 +1,7 @@
 
 <div class="border post_card  bio">
 <div class="post_header">
-<p> Post #<%= @post.id %> by <%= @post.author.name%> </p>
+<p> Post #<%= @post.id %> Title: <%= @post.title %> by <%= @post.author.name%> </p>
 <p class="counters">Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter%></p>
 </div>
 <p><%= @post.text %></p>

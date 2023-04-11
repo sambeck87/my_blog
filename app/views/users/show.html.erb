@@ -6,7 +6,7 @@
 <ul>
   <% posts = User.recent_posts(@user.name) %>
   <% posts.all.each_with_index do |post, i| %>
-    <li><%= render('posts/post_card', post: post, i: i) %></li>
+    <li><%= link_to render('posts/post_card', post: post, i: i), user_post_path(@user, post) %></li>
   <% end %>
 </ul>
 <div class="button border">
