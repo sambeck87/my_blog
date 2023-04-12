@@ -123,3 +123,21 @@ li {
   font-size: 0.7vw;
   margin-right: 1vw;
 }
+
+#user_email,
+#user_password,
+.login,
+.center,
+#user_name,
+#user_photo,
+#user_password_confirmation,
+#user_bio {
+  font-size: 1.5vw;
+  width: 70%;
+  height: 2vw;
+  margin: 0 14vw 3vw 14vw;
+}
+
+.margin_top {
+  margin-top: 5vw;
+}
