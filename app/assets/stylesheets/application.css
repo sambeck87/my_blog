@@ -127,7 +127,11 @@ li {
 #user_email,
 #user_password,
 .login,
-.center {
+.center,
+#user_name,
+#user_photo,
+#user_password_confirmation,
+#user_bio {
   font-size: 1.5vw;
   width: 70%;
   height: 2vw;
